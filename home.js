@@ -33,6 +33,7 @@
 
 function addmessage(event){
     event.preventDefault();
+    const token= localStorage.getItem('token');
     alert("The form was submitted");
     let paramString = window.location.href;
     let groupid=paramString.split('groupid=')[1]
@@ -45,7 +46,7 @@ function addmessage(event){
        
     };
    
-    axios.post("http://localhost:3000/addmessage",obj)
+    axios.post("http://localhost:3000/addmessage",obj,{  headers:{"Authorization":token}})
     .then((response) => {
         if(response.status==201)
         { console.log("return response from group",response.data.message);
