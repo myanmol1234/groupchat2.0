@@ -1,9 +1,25 @@
-const express = require('express')
-const app = express();
+const express = require('express');
+var cors = require('cors')
 const bodyParser = require('body-parser');
+const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(cors());
+const sequelize=require('./utili/database');
 
-app.listen(3000);
+//app.use(bodyParser.urlencoded({ extended: false }));
+
+const adminRoutes = require('./routes/user1');
+app.use(bodyParser.json())
+
+app.use(adminRoutes);
+
+
+sequelize
+  .sync()
+  .then(result => {
+    // console.log(result);
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.log(err);
+  });
