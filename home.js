@@ -1,6 +1,8 @@
 
 
  window.addEventListener('load', ()=> {
+    let paramString = window.location.href;
+    let groupid=paramString.split('groupid=')[1]
     
     axios.get('http://localhost:3000/getmessages').then(response => {
         if(response.status === 200){
