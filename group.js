@@ -1,8 +1,8 @@
 
 
  window.addEventListener('load', ()=> {
-    
-    axios.get('http://localhost:3000/getgroups').then(response => {
+    const token= localStorage.getItem('token');
+    axios.get('http://localhost:3000/getgroups',{ headers: {"Authorization" : token} }).then(response => {
         if(response.status === 200){
             console.log(response);
             console.log(response.data);
