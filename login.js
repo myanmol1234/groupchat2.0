@@ -14,12 +14,13 @@ function login(event)
         password:password.value,
      
     };
+    const token = localStorage.getItem('token');
    
     axios.post("http://localhost:3000/login",logindetails)
     .then((response) => {
         if(response.status==201)
         { console.log("return response from login",response.data.message);
-          
+        localStorage.setItem('token',response.data.token);
            
             window.location.href="./group.html"
         }
