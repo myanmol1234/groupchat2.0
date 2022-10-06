@@ -9,10 +9,11 @@ const sequelize=require('./utili/database');
 //app.use(bodyParser.urlencoded({ extended: false }));
 
 const adminRoutes = require('./routes/user1');
+const grouproutes=require('./routes/group1');
 app.use(bodyParser.json())
 
 app.use(adminRoutes);
-
+app.use(grouproutes);
 
 sequelize
   .sync()
