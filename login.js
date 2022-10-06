@@ -21,7 +21,7 @@ function login(event)
         { console.log("return response from login",response.data.message);
            // localStorage.setItem('token',response.data.token);
            
-            //window.location.href="./expense.html"
+            window.location.href="./group.html"
         }
         else
         {
