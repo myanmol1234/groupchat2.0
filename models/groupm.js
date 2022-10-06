@@ -14,6 +14,10 @@ const Group=sequelize.define('group',{
         allowNull:false
 
     },
+    user:{
+        type:Sequelize.STRING,
+        defaultValue: null
+    },
     
 
     

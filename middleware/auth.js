@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/admin');
-
+const bcrypt = require("bcrypt");
 const authenticate = (req, res, next) => {
 
     try {

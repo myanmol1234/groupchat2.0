@@ -32,6 +32,7 @@
 function creategroup(event){
     event.preventDefault();
     alert("The form was submitted");
+    const token = localStorage.getItem('token');
   
     const creategroupname=document.getElementById("creategroupname");
     
@@ -41,7 +42,7 @@ function creategroup(event){
        
     };
    
-    axios.post("http://localhost:3000/creategroup",obj)
+    axios.post("http://localhost:3000/creategroup",obj,{ headers: {"Authorization" : token} })
     .then((response) => {
         if(response.status==201)
         { console.log("return response from group",response.data.message);
