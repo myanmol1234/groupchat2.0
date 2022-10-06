@@ -32,16 +32,18 @@
 function addmessage(event){
     event.preventDefault();
     alert("The form was submitted");
-  
-    const creategroupname=document.getElementById("creategroupname");
+    let paramString = window.location.href;
+    let groupid=paramString.split('groupid=')[1]
+    const messageinput=document.getElementById("messageinput");
     
     let obj={
         
-        groupname:creategroupname.value,
+        msg:messageinput.value,
+        groupid:groupid,
        
     };
    
-    axios.post("http://localhost:3000/creategroup",obj)
+    axios.post("http://localhost:3000/addmessage",obj)
     .then((response) => {
         if(response.status==201)
         { console.log("return response from group",response.data.message);
