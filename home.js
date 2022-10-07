@@ -1,6 +1,7 @@
 
 
  window.addEventListener('load', ()=> {
+    var count=0;
     const token= localStorage.getItem('token');
     let paramString = window.location.href;
     console.log("home url is",paramString);
@@ -15,9 +16,9 @@
             
             //response.data.expenses.forEach(expense => {
               
-                const dataa=response.data;
+                const dataa=response.data.msg;
              
-                for(i=count;i<dataa.length;i++){
+                for(let i=count;i<dataa.length;i++){
                     if(i%2==0){
                         messages_cont_ul.innerHTML=messages_cont_ul.innerHTML+ ` <li class="even">${dataa[i]. msg} </li>`
                 
