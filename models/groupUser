@@ -1,0 +1,16 @@
+const sequelize=require('../utili/database')
+const Sequelize=require('sequelize')
+
+const groupUser=sequelize.define('groupUser',{
+
+    id:{
+        type:Sequelize.INTEGER,
+        autoIncrement:true,
+        primaryKey:true,
+        allowNull:false
+
+    },
+   
+    
+})
+module.exports=groupUser;

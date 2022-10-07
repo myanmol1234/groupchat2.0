@@ -14,19 +14,23 @@ exports.addMessage=(req,res)=>{
 }
 
 
-const getmessages = (req, res)=> {
+exports.getmessages = (req, res)=> {
 
     const lastId=req.query.lastmsg||0
-    let groupid=req.query.groupid
+    console.log("query is ",req.query);
+    let groupid=req.query.groupid; 
+    console.log("groupidddddddd",groupid);
     let lastIdN=+lastId
-    const userid=req.user.id  /// coming from middlware authentication
+   // const userid=req.user.id  /// coming from middlware authentication
    
-    groupid=+groupid
-    console.log("idddddd is",req.user.id);
-     Message.findAll({where:{userId:req.user.id}}).then(expenses => {
-         return res.status(200).json({expenses, success: true})
+    //groupId=+groupId
+    
+    Message.findAll({ where:{groupId:groupid}}).then(msg => {
+         return res.status(201).json({msg, success: true})
      })
      .catch(err => {
+        console.log(err);
          return res.status(500).json({ error: err, success: false})
      })
  }
+

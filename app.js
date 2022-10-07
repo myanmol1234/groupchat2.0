@@ -15,6 +15,7 @@ const messageroutes=require('./routes/message1');
 const User=require('./models/admin')
 const Message=require('./models/messagem')
 const Group=require('./models/groupm')
+const groupUser=require('./models/groupUser')
 
 app.use(bodyParser.json())
 
@@ -28,8 +29,12 @@ Message.belongsTo(Group);
 User.hasMany(Message)
 Message.belongsTo(User);
 
+Group.belongsToMany(User,{through:"groupUser"});
+//User.belongsToMany(Group,{through:groupUser});
+
+
 sequelize
-  .sync()
+  .sync({alter:true})
   .then(result => {
     // console.log(result);
     app.listen(3000);

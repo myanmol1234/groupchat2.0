@@ -47,3 +47,33 @@
       
 }
 
+
+.container .messages_cont {
+    margin-top: 15px;
+    overflow-y: scroll;
+  }
+  
+  .container .messages_cont ul {
+    text-decoration: none;
+  }
+  
+  .container .messages_cont ul .even {
+    text-decoration: none;
+    list-style: none;
+    font-size: large;
+    margin-top: 10px;
+    padding-left: 10px;
+    background-color: rgba(149, 148, 148, 0.433);
+  }
+  
+  .container .messages_cont ul li {
+    text-decoration: none;
+    list-style: none;
+    font-size: large;
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 10px;
+  }
+  
